@@ -7,9 +7,10 @@ WORKDIR /app
 # Copy requirements.txt from your host to /app in the container
 COPY requirements.txt .
 
-# Update package index and install Python 3 and pip
+# Install system dependencies and Python packages
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip
+    apt-get install -y \
+        python3-dev  # Example of system dependencies, adjust as needed
 
 # Install Python dependencies from requirements.txt
 RUN pip install -r requirements.txt
